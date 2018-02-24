@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zhangyun.colorcloudcamera">
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.location.network" android:required="false" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="true" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+
+    <application
+
+        android:theme="@style/AppTheme"
+        android:label="@string/app_name"
+        android:icon="@drawable/camera"
+        android:allowBackup="true"
+        android:supportsRtl="true"
+        android:roundIcon="@drawable/camera">
+
+        <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="USnrAfygitKqlzrQuAqTNkp9pdXlQWFN" />
+        <meta-data android:name="com.amap.api.v2.apikey" android:value="f5863726c7a237032685bcf627cd7e3a" />
+        <activity android:label="@string/app_name" android:name="com.zhangyun.colorcloudcamera.MainActivity" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize">
+              <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+              </intent-filter>
+         </activity>
+        <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote" />
+        <service android:name="com.amap.api.location.APSService" />
+        <activity android:name=".GalleryActivity" />
+                <provider android:name="com.yanzhenjie.album.provider.CameraFileProvider" android:exported="false" android:authorities="com.zhangyun.colorcloudcamera.album.camera.provider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/album_camera_provider" />
+        </provider>
+        <provider android:name="android.support.v4.content.FileProvider" android:exported="false" android:authorities="com.zhangyun.colorcloudcamera.easyphotopicker.fileprovider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/filepaths" />
+        </provider>
+    </application>
+
+</manifest>

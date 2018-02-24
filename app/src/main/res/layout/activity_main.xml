@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.google.android.cameraview.CameraView
+        android:id="@+id/camera"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
+        android:keepScreenOn="true"
+        app:aspectRatio="4:3"
+        app:autoFocus="true"
+        app:facing="back">
+
+    </com.google.android.cameraview.CameraView>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/mTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="top|left|center_vertical|center_horizontal|center"
+        android:background="@android:color/transparent"
+        android:padding="8dp"
+        android:text=""
+        android:textColor="@android:color/white" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/btnCameraSwitch"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignEnd="@+id/setting"
+        android:layout_alignTop="@+id/btnCameraLight"
+        android:layout_gravity="top|right|center_vertical|center_horizontal|center"
+        android:onClick="switchCamera"
+        android:padding="8dp"
+        android:src="@drawable/switch_camera" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/btnCameraLight"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="top|right|center_vertical|center_horizontal|center"
+        android:layout_marginTop="16dp"
+        android:layout_toStartOf="@+id/setting"
+        android:onClick="changeLight"
+        android:padding="8dp"
+        android:src="@drawable/light_auto" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/mPreview"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignBottom="@+id/takePhoto"
+        android:layout_alignParentStart="false"
+        android:layout_gravity="bottom|left|center_vertical|center_horizontal|center"
+        android:layout_marginStart="17dp"
+        android:onClick="toGallery"
+        android:padding="8dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/camera"
+        app:riv_border_color="#eee"
+        app:riv_border_width="1dp" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/takePhoto"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="bottom|center_vertical|center_horizontal|center"
+        android:layout_marginBottom="14dp"
+        android:onClick="takePhoto"
+        android:padding="8dp"
+        android:src="@drawable/btn_shutter_photo" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/setting"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignBottom="@+id/takePhoto"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="bottom|right|center_vertical|center_horizontal|center"
+        android:layout_marginEnd="24dp"
+        android:src="@drawable/setting" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mTextView"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="请输入工单号"
+        android:textEditNoPasteWindowLayout="@style/Base.AlertDialog.AppCompat.Light" />
+
+
+</RelativeLayout>
